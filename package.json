@@ -1,0 +1,31 @@
+{
+  "name": "sdos",
+  "version": "0.0.1",
+  "license": "CC-BY-4.0",
+  "scripts": {
+    "dev": "svelte-kit dev --host",
+    "dev-local": "svelte-kit dev",
+    "build": "svelte-kit build",
+    "package": "svelte-kit package",
+    "preview": "svelte-kit preview",
+    "prepare": "svelte-kit sync"
+  },
+  "devDependencies": {
+    "@iconify/icons-heroicons-outline": "^1.2.1",
+    "@iconify/icons-heroicons-solid": "^1.2.1",
+    "@iconify/icons-material-symbols": "^1.2.1",
+    "@iconify/svelte": "^2.2.1",
+    "@sveltejs/adapter-auto": "next",
+    "@sveltejs/kit": "next",
+    "@tailwindcss/typography": "^0.5.2",
+    "autoprefixer": "^10.4.5",
+    "postcss": "^8.4.13",
+    "svelte": "^3.44.0",
+    "tailwindcss": "^3.0.24"
+  },
+  "type": "module",
+  "dependencies": {
+    "marked": "^4.0.14",
+    "svelte-autosize": "^1.0.1"
+  }
+}
