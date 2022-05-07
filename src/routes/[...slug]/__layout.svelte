@@ -20,6 +20,12 @@
     import {  page } from '$app/stores';
     import { fly, fade } from 'svelte/transition';
 
+    $: url = new URL($page.url)
+    $: isLocalhost = url.hostname === 'localhost'
+
+    $: country = isLocalhost ? 
+    ($page.params.slug ? $page.params.slug.split('/')[0] : '') : 
+    (url.hostname.split('.')[0])
 
     $: isWiki = $page.routeId === '[...slug]' || $page.routeId === '[...slug]/wiki/[...app_slug]';
     $: isMural = $page.routeId === '[...slug]/mural/[...app_slug]';
@@ -41,14 +47,16 @@
         "pe": "Socialdemócratas de Peru",
     })[$page.params.slug.toLowerCase()]
 
-    $: country = $page.params.slug ? $page.params.slug.split('/')[0] : ''
-
     $: logo = country === 'cl' ? SDCL_Logo : SDLA_Logo
 
     let showSelector = false
 
+    
+
     // https://commons.wikimedia.org/wiki/File:00_percent.svg
 </script>
+
+URL:{url}
 
 {#if false}
 <div class="w-full h-52 bg-cover bg-center absolute top-0"
@@ -64,9 +72,9 @@ on:click={() => showSelector = false}></div>
 transition:fly="{{ y: -400, duration: 250 }}">
     <div class="container p-4 m-auto prose">
         <ul on:click={() => showSelector = false}>
-            <li><a href="/">SDLA</a></li>
-            <li><a href="/ar">SDAR</a></li>
-            <li><a href="/cl">SDCL</a></li>
+            <li><a href={ isLocalhost ? '/' : 'https://socialdemocratas.org' }>SDLA</a></li>
+            <li><a href={ isLocalhost ? '/ar' : 'https://socialdemocratas.org/ar' }>SDAR</a></li>
+            <li><a href={ isLocalhost ? '/cl' : 'https://cl.socialdemocratas.org' }>SDCL</a></li>
             <li>
                 <ul>
                     <li><a href="/cl/r2">Regional Antofagasta</a></li>
