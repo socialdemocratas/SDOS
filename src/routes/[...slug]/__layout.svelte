@@ -56,8 +56,6 @@
     // https://commons.wikimedia.org/wiki/File:00_percent.svg
 </script>
 
-URL:{url}
-
 {#if false}
 <div class="w-full h-52 bg-cover bg-center absolute top-0"
 style="background-image: url(http://storage.googleapis.com/chile-travel-newsite-static-content/2021/07/santiago_1.jpg);" ></div>
