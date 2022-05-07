@@ -23,6 +23,14 @@ class="w-full" />
 </div>
 {:else}
 <div class="container m-auto prose p-4">
+
+    <div class="bg-yellow-100 m-auto mb-5 w-3/4 p-4">
+        <h1 class="leading-relaxed font-medium text-lg">Página en construcción, por favor, considerar que todo lo que se expone está en desarrollo.</h1>
+        <p class="leading-normal">En ocasiones agregaré unos textos e imagenes para ir viendo como se ve, no considerar esos textos hasta que se elimine este cartel por favor.</p>
+        <small>07-05-2022</small><br>
+        <small><a href="https://github.com/socialdemocratas/SDOS">CC-BY-4.0, Github</a></small>
+    </div>
+
     <a href="/ar">SDAR</a>
     <a href="/cl">SDCL</a>
     <a href="/pe">SDPE</a>
