@@ -1,0 +1,119 @@
+persona:
+  id:
+    type: seq(timestamp_inverse)
+  nombre_mostrar:
+    type: text
+    size: 60
+  bio:
+    type: text
+    size: 400
+  nombres:
+    type: text
+    size: 45
+  apellidos:
+    type: text
+    size: 45
+  fecha_nac:
+    type: date
+  vive:
+    type: true
+  email:
+    type: email
+    index: true
+  pass:
+    type: password
+  ciudadania:
+    type: [[ciudadano(dni,pais)]]
+  grupos:
+    type: [[grupo(id,nombre)]]
+
+ciudadano:
+  dni:
+    type: text
+  pais:
+    type: [pais(id,grupo(id))]
+  persona_id:
+    type: int
+
+pais:
+  id:
+    type: text
+  nombre:
+    type: text
+  nombre_local:
+    type: text
+  latam:
+    type: bool
+    list: true
+  membresia:
+    type: [membresia(grupo(id))]
+
+grupo:
+  id:
+    type: text
+    size: 10
+  nombre:
+    type: text
+
+wiki_pag:
+  id:
+    type: text
+  titulo:
+    type: text
+  version:
+    type: [wiki_pag_version(id,version,contenido)]
+  grupo:
+    type: [grupo(id)]
+
+membresia:
+  grupo:
+    type: [grupo(id)]
+  persona:
+    type: [persona(id)]
+  tipo:
+    type: text
+
+wiki_pag_version:
+  id:
+    type: seq(wiki_pag, timestamp_inverse)
+  version:
+    type: int
+  contenido:
+    type: text
+  autores:
+    type: [[persona(id,nombre_mostrar)]]
+  fecha_pub:
+    type: datetime
+
+post:
+  id:
+    type: seq(timestamp_inverse)
+  text:
+    type: text
+  grupo:
+    type: [grupo(id)]
+  fecha_pub:
+    type: datetime
+    index: ['asc']
+  autor: [persona(id, nombre)]
+  vistos:
+    type: counter_add()
+    index: ['desc']
+
+evento:
+  id:
+    type: sea(timestamp_inverse)
+  text:
+    type: text
+  grupo:
+    type: [grupo(id,nombre)]
+  fecha_pub:
+    type: datetime
+  cuando:
+    type: datetime
+  duracion:
+    type: time_interval
+  donde_map:
+    type: text
+  donde_link:
+    type: text

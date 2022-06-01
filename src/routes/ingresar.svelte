@@ -34,7 +34,7 @@ Añlkjs dflksjd flksjd fñlskdj ñlkasj fkñasjfñoiwej fñaslkdj fñioawej ñal
         </label>
         <button type="submit">Ingresar</button>
     </form>
-    <p><a href="/registro">No tengo una cuenta</a></p>
+    <p><a href="/crear-cuenta">No tengo una cuenta</a></p>
 </div>
 
 <style>
