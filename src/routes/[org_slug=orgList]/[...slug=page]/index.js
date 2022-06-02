@@ -26,8 +26,7 @@ export async function get({ params, platform }) {
     if (page === null) {
         return {
             body: {
-                no_found: `${org_slug}/page/${slug}`,
-                ...fakeDb['']
+                no_found: `${org_slug}/page/${slug}`
             }
         };
     }
