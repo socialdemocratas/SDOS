@@ -20,18 +20,18 @@ export async function get({ params, platform }) {
 }
 
 
-export async function post({ params, platform }) {
+export async function put({ request, params, platform }) {
 
     const org_slug = params.org_slug;
     const slug = params.slug || 'home';
 
     // "Fresh", because Cloudflare KV is not 
-    const pageFresh = await platform.env.SDOS.get(`${org_slug}/page/${slug}`, {
+    const page = await platform.env.SDOS.get(`${org_slug}/page/${slug}`, {
         type: 'json'
     });
-    const pageToSave = Object.assign({}, pageFresh, params.content)
+    page.content = request.json();
 
-    await platform.env.SDOS.put(`${org_slug}/page/${slug}`, JSON.stringify(pageToSave));
+    await platform.env.SDOS.put(`${org_slug}/page/${slug}`, JSON.stringify(page));
 
     return {
         body: { ok: true }
