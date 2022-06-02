@@ -26,7 +26,9 @@ export async function get({ params, platform }) {
 
     if (page === null) {
         return {
-            status: 404
+            body: {
+                no_found: `${org_slug}/page/${slug}`
+            }
         };
     }
 
