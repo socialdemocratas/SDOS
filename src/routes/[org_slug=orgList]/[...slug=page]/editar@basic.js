@@ -20,7 +20,7 @@ export async function get({ params, platform }) {
 }
 
 
-export async function put({ request, params, platform }) {
+export async function post({ request, params, platform }) {
 
     const org_slug = params.org_slug;
     const slug = params.slug || 'home';

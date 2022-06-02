@@ -20,7 +20,7 @@
 
 </script>
 
-<form method="put">
+<form method="post">
 <div class="mb-14">
   <div class="container m-auto max-w-lg lg:max-w-5xl p-2">
     <div>
