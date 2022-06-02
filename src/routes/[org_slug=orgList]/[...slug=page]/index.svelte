@@ -5,12 +5,13 @@ export let page;
 
 console.log('page', page);
 
-const content = marked(page.content);
+const content = marked(page.content || '');
 
 $: baseUrl = page.slug === '' ? $orgCountry.org_slug : page.slug;
 
 </script>
 
+{#if page.content}
 <div class="container m-auto max-w-lg p-2">
     <div>
         <small>{page.title}</small>
@@ -29,3 +30,5 @@ $: baseUrl = page.slug === '' ? $orgCountry.org_slug : page.slug;
         </div>
     </div>
 </div>
+{/if}
+{JSON.stringify(page)}
