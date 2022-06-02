@@ -18,7 +18,7 @@ export async function get({ params, platform }) {
 
     const org_slug = params.org_slug;
     const slug = params.slug || 'home';
-    console.log('params', params)
+    console.log('get', `${org_slug}/page/${slug}`)
 
     const page = await platform.env.SDOS.get(`${org_slug}/page/${slug}`, {
         type: 'json'
