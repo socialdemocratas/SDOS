@@ -14,18 +14,21 @@ const fakeDb = {
 }
 
 
-export async function get({ params }) {
+export async function get({ params, platform }) {
 
-    const slug = params.slug || '';
+    const org_slug = params.org_slug;
+    const slug = params.slug || 'home';
     console.log('params', params)
 
-    if(!(slug in fakeDb)) {
+    const page = await platform.env.SDOS.get(`${org_slug}/page/${slug}`, {
+        type: 'json'
+    });
+
+    if (value === null) {
         return {
             status: 404
         };
     }
-
-    const page = fakeDb[slug]
 
     return {
         body: { page }
