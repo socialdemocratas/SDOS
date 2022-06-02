@@ -29,7 +29,7 @@ export async function post({ request, params, platform }) {
     const page = await platform.env.SDOS.get(`${org_slug}/page/${slug}`, {
         type: 'json'
     });
-    page.content = request.json();
+    page.content = request.formData().get('content');
 
     await platform.env.SDOS.put(`${org_slug}/page/${slug}`, JSON.stringify(page));
 
