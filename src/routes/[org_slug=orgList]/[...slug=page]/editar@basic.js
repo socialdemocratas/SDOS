@@ -1,34 +1,40 @@
-const fakeDb = {
-    'inicio': {
-        slug: 'inicio',
-        title: 'Socialdemócratas',
-        content: 'Socialdemócratas de [EDITAR]\n==========\n\n*Editar esta página*',
-        last_edit: { auth: { id: 342, nombre: 'Rodrigo González'}, date: '' }
-    },
-    'manual-de-elecciones': {
-        slug: 'manual-de-elecciones',
-        title: 'Manual de elecciones',
-        content: '# Manual de elecciones de [[EDITAR]]\n\n*Editar esta pági<span style="color:red" class="text-xl">na</span>*',
-        last_edit: { auth: { id: 342, nombre: 'Carla Sepu'}, date: '' }
-    }
-}
+export async function get({ params, platform }) {
 
+    const org_slug = params.org_slug;
+    const slug = params.slug || 'home';
 
-export async function get({ params }) {
+    const page = await platform.env.SDOS.get(`${org_slug}/page/${slug}`, {
+        type: 'json'
+    });
 
-    const slug = params.slug || 'inicio';
-    console.log('params', params)
-
-    if(!(slug in fakeDb)) {
+    if (page === null) {
         return {
             status: 404
         };
     }
 
-    const page = fakeDb[slug]
-
     return {
         body: { page }
+    }
+
+}
+
+
+export async function post({ params, platform }) {
+
+    const org_slug = params.org_slug;
+    const slug = params.slug || 'home';
+
+    // "Fresh", because Cloudflare KV is not 
+    const pageFresh = await platform.env.SDOS.get(`${org_slug}/page/${slug}`, {
+        type: 'json'
+    });
+    const pageToSave = Object.assign({}, pageFresh, params.content)
+
+    await platform.env.SDOS.put(`${org_slug}/page/${slug}`, JSON.stringify(pageToSave));
+
+    return {
+        body: { ok: true }
     }
 
 }

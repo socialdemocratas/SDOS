@@ -1,5 +1,6 @@
 <script>
-  import { goto } from '$app/navigation';
+  import { goto } from "$app/navigation";
+  import { orgCountry } from "$lib/stores";
   import Icon from "@iconify/svelte";
   import eyeIcon from "@iconify/icons-heroicons-outline/eye";
   import checkIcon from "@iconify/icons-heroicons-outline/check";
@@ -17,7 +18,18 @@
 
   let preview = false;
 
-
+  function handleConfirm() {
+    submit = fetch(".", {
+      method: "POST",
+      body: JSON.stringify({
+        org_slug: orgCountry.org_slug,
+        content,
+      }),
+      headers: { "content-type": "application/json" },
+    })
+      .then((resp) => resp.json())
+      .finally(() => setTimeout(() => (submit = null), 5000));
+  }
 </script>
 
 <div class="mb-14">
@@ -27,10 +39,13 @@
     </div>
     <div class="flex flex-col lg:flex-row">
       <textarea
-        class="{preview && 'hidden'} lg:block min-h-screen focus:outline-none w-full pb-5 outline-hidden border-none"
+        class="{preview &&
+          'hidden'} lg:block min-h-screen focus:outline-none w-full pb-5 outline-hidden border-none"
         bind:value={content}
       />
-      <div class="{!preview && 'hidden'} lg:block min-h-screen w-full prose pb-5">
+      <div
+        class="{!preview && 'hidden'} lg:block min-h-screen w-full prose pb-5"
+      >
         {@html contentRendered}
       </div>
     </div>
@@ -61,7 +76,7 @@
       </button>
     {:else}
       <button
-        on:click={()=>goto('.')}
+        on:click={() => goto(".")}
         class="flex flex-col focus:bg-transparent items-center flex-1 pb-1 pt-2 lg:pl-1 lg:pr-2"
       >
         <Icon
@@ -122,6 +137,7 @@
         >
       </button>
       <button
+        on:click={handleConfirm}
         class="flex flex-col focus:bg-transparent items-center flex-1 pb-1 pt-2 lg:pl-1 lg:pr-2"
       >
         <Icon

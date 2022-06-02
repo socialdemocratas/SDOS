@@ -15,140 +15,140 @@ const countries:{[org_slug:string]: CountryData} = {
     ar: {
         code: 'SDAR',
         org_slug: 'ar',
-        title: 'Socialdemócratas de Argentina',
+        title: 'Socialdemócratas, Argentina',
         lang: ['es-ar', 'pt', 'en'],
         logo: SDLA_Logo
     },
     bo: {
         code: 'SDBO',
         org_slug: 'bo',
-        title: 'Socialdemócratas de Bolivia',
+        title: 'Socialdemócratas, Bolivia',
         lang: ['es', 'pt', 'en'],
         logo: SDLA_Logo
     },
     br: {
         code: 'SDBR',
         org_slug: 'br',
-        title: 'Socialdemocratas do Brasil',
+        title: 'Socialdemocratas, Brasil',
         lang: ['pt', 'es', 'en'],
         logo: SDLA_Logo
     },
     cl: {
         code: 'SDCL',
         org_slug: 'cl',
-        title: 'Socialdemócratas de Chile',
+        title: 'Socialdemócratas, Chile',
         lang: ['es', 'pt', 'en'],
         logo: SDCL_Logo
     },
     co: {
         code: 'SDCO',
         org_slug: 'co',
-        title: 'Socialdemócratas de Colombia',
+        title: 'Socialdemócratas, Colombia',
         lang: ['es', 'pt', 'en'],
         logo: SDLA_Logo
     },
     cr: {
         code: 'SDCR',
         org_slug: 'cr',
-        title: 'Socialdemócratas de Costa Rica',
+        title: 'Socialdemócratas, Costa Rica',
         lang: ['es', 'pt', 'en'],
         logo: SDLA_Logo
     },
     cu: {
         code: 'SDCU',
         org_slug: 'cu',
-        title: 'Socialdemócratas de Cuba',
+        title: 'Socialdemócratas, Cuba',
         lang: ['es', 'pt', 'en'],
         logo: SDLA_Logo
     },
     do: {
         code: 'SDDO',
         org_slug: 'do',
-        title: 'Socialdemócratas de República Dominicana',
+        title: 'Socialdemócratas, República Dominicana',
         lang: ['es', 'pt', 'en'],
         logo: SDLA_Logo
     },
     ec: {
         code: 'SDEC',
         org_slug: 'ec',
-        title: 'Socialdemócratas de Ecuador',
+        title: 'Socialdemócratas, Ecuador',
         lang: ['es', 'pt', 'en'],
         logo: SDLA_Logo
     },
     gt: {
         code: 'SDGT',
         org_slug: 'gt',
-        title: 'Socialdemócratas de Guatemala',
+        title: 'Socialdemócratas, Guatemala',
         lang: ['es', 'pt', 'en'],
         logo: SDLA_Logo
     },
     hn: {
         code: 'SDHN',
         org_slug: 'hn',
-        title: 'Socialdemócratas de Honduras',
+        title: 'Socialdemócratas, Honduras',
         lang: ['es', 'pt', 'en'],
         logo: SDLA_Logo
     },
     ht: {
         code: 'SDHT',
         org_slug: 'ht',
-        title: 'Sosyal Demokrat Ayisyen',
+        title: 'Sosyal Demokrat, Ayisyen',
         lang: ['ht', 'es', 'pt', 'en'],
         logo: SDLA_Logo
     },
     mx: {
         code: 'SDMX',
         org_slug: 'mx',
-        title: 'Socialdemócratas de México',
+        title: 'Socialdemócratas, México',
         lang: ['es', 'pt', 'en'],
         logo: SDLA_Logo
     },
     ni: {
         code: 'SDNI',
         org_slug: 'ni',
-        title: 'Socialdemócratas de Nicaragua',
+        title: 'Socialdemócratas, Nicaragua',
         lang: ['es', 'pt', 'en'],
         logo: SDLA_Logo
     },
     pa: {
         code: 'SDPA',
         org_slug: 'pa',
-        title: 'Socialdemócratas de Panamá',
+        title: 'Socialdemócratas, Panamá',
         lang: ['es', 'pt', 'en'],
         logo: SDLA_Logo
     },
     pe: {
         code: 'SDPE',
         org_slug: 'pe',
-        title: 'Socialdemócratas del Perú',
+        title: 'Socialdemócratas, Perú',
         lang: ['es', 'pt', 'en'],
         logo: SDLA_Logo
     },
     py: {
         code: 'SDPY',
         org_slug: 'py',
-        title: 'Socialdemócratas de Paraguay',
+        title: 'Socialdemócratas, Paraguay',
         lang: ['es', 'pt', 'en'],
         logo: SDLA_Logo
     },
     sv: {
         code: 'SDSV',
         org_slug: 'sv',
-        title: 'Socialdemócratas del Salvador',
+        title: 'Socialdemócratas, Salvador',
         lang: ['es', 'pt', 'en'],
         logo: SDLA_Logo
     },
     uy: {
         code: 'SDUY',
         org_slug: 'uy',
-        title: 'Socialdemócratas de Uruguay',
+        title: 'Socialdemócratas, Uruguay',
         lang: ['es', 'pt', 'en'],
         logo: SDLA_Logo
     },
     la: {
         code: 'SDLA',
         org_slug: 'la',
-        title: 'Socialdemócratas de Latinoamérica y el Caribe',
+        title: 'Socialdemócratas de Latinoamérica',
         lang: ['es', 'pt', 'en', 'fr'],
         logo: SDLA_Logo
     },
