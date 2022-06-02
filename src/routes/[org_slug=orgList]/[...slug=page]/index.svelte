@@ -5,7 +5,7 @@ export let page;
 
 const content = marked(page.content);
 
-$: baseUrl = page.slug === '' ? $orgCountry.org_slug : page.slug;
+$: baseUrl = page.slug === 'home' ? $orgCountry.org_slug : page.slug;
 
 </script>
 
