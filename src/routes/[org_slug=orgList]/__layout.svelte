@@ -85,7 +85,7 @@ transition:fly="{{ y: -400, duration: 250 }}">
 </div>
 {/if}
 
-<div class="container m-auto flex flex-row fixed top-0 z-10 lg:ml-14 bg-white">
+<div class="container m-auto flex flex-row fixed top-0 z-10 lg:ml-16 bg-white">
     <div class="flex-1 flex items-center">
         <div class="hover:bg-gray-100 rounded-lg ml-1 cursor-pointer
         flex-1 flex flex-row items-center overflow-hidden bg-opacity-90 bg-white active:(bg-primary bg-opacity-25)"

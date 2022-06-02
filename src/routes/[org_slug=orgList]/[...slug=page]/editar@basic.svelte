@@ -18,27 +18,17 @@
 
   let preview = false;
 
-  function handleConfirm() {
-    submit = fetch(".", {
-      method: "POST",
-      body: JSON.stringify({
-        org_slug: orgCountry.org_slug,
-        content,
-      }),
-      headers: { "content-type": "application/json" },
-    })
-      .then((resp) => resp.json())
-      .finally(() => setTimeout(() => (submit = null), 5000));
-  }
 </script>
 
+<form method="put">
 <div class="mb-14">
   <div class="container m-auto max-w-lg lg:max-w-5xl p-2">
     <div>
-      <small>Editando: {page.title}</small>
+      <small class="font-medium">Editando: {page.title}</small>
     </div>
     <div class="flex flex-col lg:flex-row">
       <textarea
+        name="content"
         class="{preview &&
           'hidden'} lg:block min-h-screen focus:outline-none w-full pb-5 outline-hidden border-none"
         bind:value={content}
@@ -137,7 +127,7 @@
         >
       </button>
       <button
-        on:click={handleConfirm}
+        type="submit"
         class="flex flex-col focus:bg-transparent items-center flex-1 pb-1 pt-2 lg:pl-1 lg:pr-2"
       >
         <Icon
@@ -154,3 +144,4 @@
     {/if}
   </div>
 </div>
+</form>
