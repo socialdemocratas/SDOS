@@ -24,7 +24,7 @@ export async function get({ params, platform }) {
         type: 'json'
     });
 
-    if (value === null) {
+    if (page === null) {
         return {
             status: 404
         };
