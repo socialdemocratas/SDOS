@@ -3,6 +3,8 @@ import { orgCountry } from "$lib/stores";
 import {marked} from 'marked'
 export let page;
 
+console.log('page', page);
+
 const content = marked(page.content);
 
 $: baseUrl = page.slug === '' ? $orgCountry.org_slug : page.slug;
