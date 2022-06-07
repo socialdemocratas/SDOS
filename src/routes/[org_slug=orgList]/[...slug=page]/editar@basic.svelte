@@ -20,10 +20,14 @@
   let preview = false;
   let exitEditMode;
 
-  const goBack = () => {
-    const path = $page.url.pathname.substring(0, $page.url.pathname.lastIndexOf('/editar'));
+  async function goBack() {
+    const path = $page.url.pathname.substring(0, $page.url.pathname.lastIndexOf('/editar')) + '/';
     console.log('goBack', path)
-    goto(path);
+    try {
+      await goto(path);
+    } catch(e) {
+      console.log('cannot navigate', e)
+    }
   }
 
   if(exitEditMode) {
