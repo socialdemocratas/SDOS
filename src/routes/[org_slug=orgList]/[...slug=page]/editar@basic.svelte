@@ -21,7 +21,9 @@
   let exitEditMode;
 
   const goBack = () => {
-    goto($page.url.pathname.substring(0, $page.url.pathname.lastIndexOf('/')));
+    const path = $page.url.pathname.substring(0, $page.url.pathname.lastIndexOf('/editar'));
+    console.log('goBack', path)
+    goto(path);
   }
 
   if(exitEditMode) {
