@@ -28,6 +28,24 @@ interface Models {
     }
 }
 
+// pages/cl-r2/1223423:{sadfsfsdf}
+let mdls:Models = {
+    pages: {
+        slug: {
+            type: KeyType.TEXT,
+            index: [ORDER.ASC]
+        },
+        org: {
+            type: KeyType.TEXT
+        }
+    },
+    orgs: {
+        id: {
+            type: KeyType.TEXT
+        }
+    }
+}
+
 // pk: ['sdf', 'sdf']
 
 class KVDatabase {

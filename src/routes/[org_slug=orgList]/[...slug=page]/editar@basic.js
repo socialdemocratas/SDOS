@@ -3,18 +3,18 @@ export async function get({ params, platform }) {
     const org_slug = params.org_slug;
     const slug = params.slug || 'home';
 
-    const page = await platform.env.SDOS.get(`${org_slug}/page/${slug}`, {
+    const item = await platform.env.SDOS.get(`${org_slug}/page/${slug}`, {
         type: 'json'
     });
 
-    if (page === null) {
+    if (item === null) {
         return {
             status: 404
         };
     }
 
     return {
-        body: { page }
+        body: { item }
     }
 
 }
@@ -26,16 +26,16 @@ export async function post({ request, params, platform }) {
     const slug = params.slug || 'home';
 
     // "Fresh", because Cloudflare KV is not 
-    const page = await platform.env.SDOS.get(`${org_slug}/page/${slug}`, {
+    const item = await platform.env.SDOS.get(`${org_slug}/page/${slug}`, {
         type: 'json'
     });
     const fd = await request.formData();
-    page.content = fd.get('content');
+    item.content = fd.get('content');
 
     await platform.env.SDOS.put(`${org_slug}/page/${slug}`, JSON.stringify(page));
 
     return {
-        body: { ok: true }
+        body: { ok: true, exitEditMode: true }
     }
 
 }

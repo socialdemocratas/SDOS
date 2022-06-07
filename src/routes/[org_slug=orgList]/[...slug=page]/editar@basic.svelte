@@ -1,6 +1,7 @@
 <script>
   import { goto } from "$app/navigation";
   import { orgCountry } from "$lib/stores";
+  import { page } from '$app/stores';
   import Icon from "@iconify/svelte";
   import eyeIcon from "@iconify/icons-heroicons-outline/eye";
   import checkIcon from "@iconify/icons-heroicons-outline/check";
@@ -11,12 +12,22 @@
   import photographIcon from "@iconify/icons-heroicons-outline/photograph";
 
   import { marked } from "marked";
-  export let page;
+  export let item;
 
-  let content = page.content;
+  let content = item.content;
   $: contentRendered = marked(content);
 
   let preview = false;
+  let exitEditMode;
+
+  const goBack = () => {
+    goto($page.url.pathname.substring(0, $page.url.pathname.lastIndexOf('/')));
+  }
+
+  if(exitEditMode) {
+    goBack();
+    exitEditMode = false;
+  }
 
 </script>
 
@@ -24,7 +35,7 @@
 <div class="mb-14">
   <div class="container m-auto max-w-lg lg:max-w-5xl p-2">
     <div>
-      <small class="font-medium">Editando: {page.title}</small>
+      <small class="font-medium">Editando: {item.title}</small>
     </div>
     <div class="flex flex-col lg:flex-row">
       <textarea
@@ -66,7 +77,7 @@
       </button>
     {:else}
       <button
-        on:click={() => goto(".")}
+        on:click={goBack}
         class="flex flex-col focus:bg-transparent items-center flex-1 pb-1 pt-2 lg:pl-1 lg:pr-2"
       >
         <Icon
