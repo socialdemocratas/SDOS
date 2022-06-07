@@ -19,18 +19,18 @@ export async function get({ params, platform }) {
     const org_slug = params.org_slug;
     const slug = params.slug || 'home';
 
-    const page = await platform.env.SDOS.get(`${org_slug}/page/${slug}`, {
+    const item = await platform.env.SDOS.get(`${org_slug}/page/${slug}`, {
         type: 'json'
     });
 
-    if (page === null) {
+    if (item === null) {
         return {
             status: 404
         };
     }
 
     return {
-        body: { page }
+        body: { item }
     }
 
 }

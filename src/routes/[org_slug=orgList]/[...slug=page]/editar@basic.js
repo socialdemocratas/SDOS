@@ -31,8 +31,9 @@ export async function post({ request, params, platform }) {
     });
     const fd = await request.formData();
     item.content = fd.get('content');
+    item.last_edit.date = new Date().toString();
 
-    await platform.env.SDOS.put(`${org_slug}/page/${slug}`, JSON.stringify(page));
+    await platform.env.SDOS.put(`${org_slug}/page/${slug}`, JSON.stringify(item));
 
     return {
         body: { ok: true, exitEditMode: true }
