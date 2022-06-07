@@ -16,6 +16,7 @@
 
   let content = item.content;
   $: contentRendered = marked(content);
+  $: pathBack = $page.url.pathname.substring(0, $page.url.pathname.lastIndexOf('/editar')) + '/';
 
   let preview = false;
   let exitEditMode;
@@ -82,8 +83,8 @@
         >
       </button>
     {:else}
-      <button
-        on:click={goBack}
+      <a
+        href={pathBack}
         class="flex flex-col focus:bg-transparent items-center flex-1 pb-1 pt-2 lg:pl-1 lg:pr-2"
       >
         <Icon
@@ -96,7 +97,7 @@
           class="font-semibold text-center text-[10px] text-gray-600 text-ellipsis overflow-hidden w-[66px]"
           >Cancelar</small
         >
-      </button>
+    </a>
       <button
         class="flex flex-col focus:bg-transparent items-center flex-1 pb-1 pt-2 lg:pl-1 lg:pr-2"
       >
